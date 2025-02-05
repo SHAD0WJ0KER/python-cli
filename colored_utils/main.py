@@ -12,7 +12,7 @@ class Colored_utils():
         self.bright      =                   bright
         self.BRIGHT      =                   Style.BRIGHT
     
-    def colored(self, text: str = "", color: str = self.FG_DEFAULT) -> str:
+    def colored(self, text: str = "", color: str = Fore.LIGHTWHITE_EX) -> str:
         if self.bright:
             return f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}"
         else:
@@ -39,13 +39,13 @@ class Colored_utils():
         
         return f"{self.FG_SUCCESS}[SUCCESS] {self.STYLE_RESET}{text}"
 
-    def print_colored(self, text: str = "", color: str = self.FG_DEFAULT) -> None:
+    def print_colored(self, text: str = "", color: str = Fore.LIGHTWHITE_EX) -> None:
         if self.bright:
             print(f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}")
         else:
-            print(f"{color}{text}{self.STYLE_RESET}" 
+            print(f"{color}{text}{self.STYLE_RESET}")
 
-    def print_warning(self, text: str = "", all: bool = False) -> None:)
+    def print_warning(self, text: str = "", all: bool = False) -> None:
         
         if all:
             print(f"{self.FG_WARNING}[Warning] {text}{self.STYLE_RESET}")
