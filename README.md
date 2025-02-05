@@ -37,5 +37,5 @@ cu.success()
 
 This should successfully install and import module for your use. 
 
-> [!NOTE]
+> [!WARNING]
 > Project structure will change.
