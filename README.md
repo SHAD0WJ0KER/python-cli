@@ -23,7 +23,7 @@ Gradually increase difficulty of programming requests/tasks.
 > [!NOTE]
 > Pay attention to the `.` (dot) in above command
    
-> [!NOTE]
+> [!TIP]
 > Run with flag `-e` if you want to change code - for more information: [pip documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs)
 
 4. To test, go into your python script and run:
