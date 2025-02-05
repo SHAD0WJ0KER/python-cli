@@ -26,7 +26,7 @@ Gradually increase difficulty of programming requests/tasks.
 > [!NOTE]
 > Run with flag `-e` if you want to change code - for more information: [pip documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs)
 
-5. To test, go into your python script and run:
+4. To test, go into your python script and run:
 
 ```py
 from colored_utils.main import Colored_utils
