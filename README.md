@@ -16,10 +16,12 @@ Gradually increase difficulty of programming requests/tasks.
 
 # How to use
 
-1. clone this repository (pypi distribution is planned down the road). 
-2. From the command line run `pip install -r requirements.txt`.
-3. Run command `pip install .` (if you intend to change the code add option `-e`, so you won't need to reinstall module with every code change).
-4. To test, go into your python script and run:
+1. clone this repository (pypi distribution is planned down the road)
+2. From the command line run `pip install -r requirements.txt`
+3. Run command `pip install .`
+   - > [!NOTE] Pay attention to the `.` (dot) in above command
+     > [!NOTE] Run with flag `-e` if you want to change code - for more information: [pip documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs)
+5. To test, go into your python script and run:
 
 ```py
 from colored_utils.main import Colored_utils
@@ -31,4 +33,4 @@ cu.success()
 This should successfully install and import module for your use. 
 
 > [!NOTE]
-> Project structure will change
+> Project structure will change.
