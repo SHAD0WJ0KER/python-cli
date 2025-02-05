@@ -20,11 +20,11 @@ Gradually increase difficulty of programming requests/tasks.
 2. From the command line run `pip install -r requirements.txt`
 3. Run command `pip install .`
 
-   > [!NOTE]
-   > Pay attention to the `.` (dot) in above command
+> [!NOTE]
+> Pay attention to the `.` (dot) in above command
    
-   > [!NOTE]
-   > Run with flag `-e` if you want to change code - for more information: [pip documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs)
+> [!NOTE]
+> Run with flag `-e` if you want to change code - for more information: [pip documentation](https://pip.pypa.io/en/stable/topics/local-project-installs/#editable-installs)
 
 5. To test, go into your python script and run:
 
