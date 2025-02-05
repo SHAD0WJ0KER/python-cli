@@ -1,4 +1,5 @@
 # Project ideas
 
-- alternating background colors to make it more readable.
-- 
+[ ] Alternating background colors (for logs and similar style)
+[ ] Built in fixes for Windows output
+[ ] Restructure the project
