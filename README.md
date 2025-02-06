@@ -29,8 +29,8 @@ Gradually increase difficulty of programming requests/tasks.
 4. To test, go into your python script and run:
 
 ```py
-from colored_utils.main import Colored_utils
-cu = Colored_utils()
+from colored_utils.main import ColoredUtils
+cu = ColoredUtils()
 
 cu.success()
 ```
