@@ -1,18 +1,37 @@
 from colorama import Fore, Back, Style, just_fix_windows_console
 
-class Colored_utils():
-
+class ColoredUtils():
+    """
+    TODO: document
+    """
+    FG_RED      = FG_ERROR   = Fore.RED
+    FG_GREEN    = FG_SUCCESS = Fore.GREEN
+    FG_BLUE     = FG_INFO    = Fore.BLUE
+    FG_YELLOW   = FG_WARNING = Fore.YELLOW
+    FG_DEFAULT  =              Fore.LIGHTWHITE_EX
+    STYLE_RESET =              Style.RESET_ALL
+    BRIGHT      =              Style.BRIGHT
+    
     def __init__(self, bright=False):
-        self.FG_RED      = self.FG_ERROR   = Fore.RED
-        self.FG_GREEN    = self.FG_SUCCESS = Fore.GREEN
-        self.FG_BLUE     = self.FG_INFO    = Fore.BLUE
-        self.FG_YELLOW   = self.FG_WARNING = Fore.YELLOW
-        self.FG_DEFAULT  =                   Fore.LIGHTWHITE_EX
-        self.STYLE_RESET =                   Style.RESET_ALL
-        self.bright      =                   bright
-        self.BRIGHT      =                   Style.BRIGHT
+        self.bright = bright
     
     def colored(self, text: str = "", color: str = Fore.LIGHTWHITE_EX) -> str:
+        """
+        Method that returns foreground colored text. Background not implemented yet.
+
+        Parameters
+        ----------
+        text : str, optional
+            Text that will be colored in desired color (default = "").
+        color : str, optional
+            Color in which the text will be returned (default = Fore.LIGHTWHITE_EX)
+        
+        Returns
+        -------
+        str
+            Returns formatted text with style reset afterwards, so text
+            after it is not affected.
+        """
         if self.bright:
             return f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}"
         else:
