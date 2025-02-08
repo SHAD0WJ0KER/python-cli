@@ -15,7 +15,7 @@ class ColoredUtils():
     def __init__(self, bright=False):
         self.bright = bright
     
-    def colored(self, text: str = "", color: str = Fore.LIGHTWHITE_EX) -> str:
+    def colored(self, text: str = "", color: int = Fore.LIGHTWHITE_EX) -> str:
         """
         Method that returns foreground colored text. Background not implemented yet.
 
@@ -23,8 +23,11 @@ class ColoredUtils():
         ----------
         text : str, optional
             Text that will be colored in desired color (default = "").
-        color : str, optional
-            Color in which the text will be returned (default = Fore.LIGHTWHITE_EX)
+        color : int, optional
+            Color in which the text will be returned (default = Fore.LIGHTWHITE_EX).
+            It's recommendad to use colorama's `Fore` or `ColoredUtils` static attributes,
+            e.g. from ColoredUtils: ColoredUtils.FG_RED, ColoredUtils.FG_ERROR or
+            from Fore: Fore.RED, Fore.GREEN.
         
         Returns
         -------
@@ -58,7 +61,7 @@ class ColoredUtils():
         
         return f"{self.FG_SUCCESS}[SUCCESS] {self.STYLE_RESET}{text}"
 
-    def print_colored(self, text: str = "", color: str = Fore.LIGHTWHITE_EX) -> None:
+    def print_colored(self, text: str = "", color: int = Fore.LIGHTWHITE_EX) -> None:
         if self.bright:
             print(f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}")
         else:
