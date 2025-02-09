@@ -17,7 +17,7 @@ Gradually increase difficulty of programming requests/tasks.
 # How to use
 
 1. clone this repository (pypi distribution is planned down the road)
-2. From the command line run `pip install -r requirements.txt`
+2. `cd` into the repository and from the command line run `pip install -r requirements.txt`
 3. Run command `pip install .`
 
 > [!NOTE]
