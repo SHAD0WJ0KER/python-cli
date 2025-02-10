@@ -14,10 +14,10 @@ class ColoredUtils():
     def __init__(self, bright : bool = False) -> None:
         self.bright = bright
         
-        self.info = f"{Fore.FG_INFO}[INFO] {Style.STYLE_RESET}"
-        self.success = f"{Fore.FG_SUCCESS}[SUCCESS] {Style.STYLE_RESET}"
-        self.warning = f"{Fore.FG_WARNING}[WARNING] {Style.STYLE_RESET}"
-        self.error = f"{Fore.FG_ERROR}[ERROR] {Style.STYLE_RESET}"
+        self.info = f"{Fore.BLUE}[INFO] {Style.RESET_ALL}"
+        self.success = f"{Fore.GREEN}[SUCCESS] {Style.RESET_ALL}"
+        self.warning = f"{Fore.YELLOW}[WARNING] {Style.RESET_ALL}"
+        self.error = f"{Fore.RED}[ERROR] {Style.RESET_ALL}"
         
         if self.bright:
             self.info = f"{Style.BRIGHT}" + self.info
@@ -45,7 +45,7 @@ class ColoredUtils():
             Returns formatted text with style reset afterwards, so text
             after it is not affected.
         """
-        temp = "" if not self.bright else f"{self.BRIGHT}"
+        temp = "" if not self.bright else f"{Style.BRIGHT}"
         temp +=  f"{color}{text}{Style.STYLE_RESET}"
         return temp
 

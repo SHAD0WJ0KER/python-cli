@@ -1,4 +1,4 @@
 from colored_utils import ColoredUtils
 
-
-print("Runs")
+cu = ColoredUtils(True)
+print(cu.success + "Runs")
