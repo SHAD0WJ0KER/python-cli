@@ -1,1 +1,1 @@
-from .main import Colored_utils
+from .main import ColoredUtils

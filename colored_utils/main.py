@@ -8,14 +8,24 @@ class ColoredUtils():
     FG_GREEN    = FG_SUCCESS = Fore.GREEN
     FG_BLUE     = FG_INFO    = Fore.BLUE
     FG_YELLOW   = FG_WARNING = Fore.YELLOW
-    FG_DEFAULT  =              Fore.LIGHTWHITE_EX
+    FG_DEFAULT  =              Fore.WHITE
     STYLE_RESET =              Style.RESET_ALL
-    BRIGHT      =              Style.BRIGHT
-    
-    def __init__(self, bright=False):
+
+    def __init__(self, bright : bool = False) -> None:
         self.bright = bright
+        
+        self.info = f"{Fore.FG_INFO}[INFO] {Style.STYLE_RESET}"
+        self.success = f"{Fore.FG_SUCCESS}[SUCCESS] {Style.STYLE_RESET}"
+        self.warning = f"{Fore.FG_WARNING}[WARNING] {Style.STYLE_RESET}"
+        self.error = f"{Fore.FG_ERROR}[ERROR] {Style.STYLE_RESET}"
+        
+        if self.bright:
+            self.info = f"{Style.BRIGHT}" + self.info
+            self.success = f"{Style.BRIGHT}" + self.success
+            self.warning = f"{Style.BRIGHT}" + self.warning
+            self.error = f"{Style.BRIGHT}" + self.error
     
-    def colored(self, text: str = "", color: int = Fore.LIGHTWHITE_EX) -> str:
+    def colored(self, text: str = "", color: int = Fore.WHITE) -> str:
         """
         Method that returns foreground colored text. Background not implemented yet.
 
@@ -24,7 +34,7 @@ class ColoredUtils():
         text : str, optional
             Text that will be colored in desired color (default = "").
         color : int, optional
-            Color in which the text will be returned (default = Fore.LIGHTWHITE_EX).
+            Color in which the text will be returned (default = Fore.WHITE).
             It's recommendad to use colorama's `Fore` or `ColoredUtils` static attributes,
             e.g. from ColoredUtils: ColoredUtils.FG_RED, ColoredUtils.FG_ERROR or
             from Fore: Fore.RED, Fore.GREEN.
@@ -35,55 +45,28 @@ class ColoredUtils():
             Returns formatted text with style reset afterwards, so text
             after it is not affected.
         """
-        if self.bright:
-            return f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}"
-        else:
-            return f"{color}{text}{self.STYLE_RESET}" 
+        temp = "" if not self.bright else f"{self.BRIGHT}"
+        temp +=  f"{color}{text}{Style.STYLE_RESET}"
+        return temp
 
-    def warning(self, text: str = "", all: bool = False) -> str:
-        
-        if all:
-            return f"{self.FG_WARNING}[Warning] {text}{self.STYLE_RESET}"
-        
-        return f"{self.FG_WARNING}[Warning] {self.STYLE_RESET}{text}"
+    def print_colored(self, text, color: int = Fore.WHITE, end : str = "\n") -> None:
+        """
+        Method that will print text in wanted color. 
 
-    def info(self, text: str = "", all: bool = False) -> str:
+        Parameters
+        ----------
+        text : str
+            Text that will be printed
+        color : int, optional
+            Color in which color will appear (default = Fore.WHITE).
+        end : str, optional
+            Ending delimiter for print (default = "\n")
+        
+        Returns
+        -------
+        None
+        """
+        temp = "" if not self.bright else f"{Style.BRIGHT}"
+        temp += f"{color}{text}{Style.STYLE_RESET}"
+        print(temp, end=end)
 
-        if all:
-            return f"{self.FG_INFO}[INFO] {text}{self.STYLE_RESET}"
-        
-        return f"{self.FG_INFO}[INFO] {self.STYLE_RESET}{text}"
-
-    def success(self, text: str = "", all: bool = False) -> str:
-        
-        if all:
-            return f"{self.FG_SUCCESS}[SUCCESS] {text}{self.STYLE_RESET}"
-        
-        return f"{self.FG_SUCCESS}[SUCCESS] {self.STYLE_RESET}{text}"
-
-    def print_colored(self, text: str = "", color: int = Fore.LIGHTWHITE_EX) -> None:
-        if self.bright:
-            print(f"{self.BRIGHT}{color}{text}{self.STYLE_RESET}")
-        else:
-            print(f"{color}{text}{self.STYLE_RESET}")
-
-    def print_warning(self, text: str = "", all: bool = False) -> None:
-        
-        if all:
-            print(f"{self.FG_WARNING}[Warning] {text}{self.STYLE_RESET}")
-        
-        print(f"{self.FG_WARNING}[Warning] {self.STYLE_RESET}{text}")
-
-    def print_info(self, text: str = "", all: bool = False) -> None:
-
-        if all:
-            print(f"{self.FG_INFO}[INFO] {text}{self.STYLE_RESET}")
-        
-        print(f"{self.FG_INFO}[INFO] {self.STYLE_RESET}{text}")
-
-    def print_success(self, text: str = "", all: bool = False) -> None:
-        
-        if all:
-            print(f"{self.FG_SUCCESS}[SUCCESS] {text}{self.STYLE_RESET}")
-        
-        print(f"{self.FG_SUCCESS}[SUCCESS] {self.STYLE_RESET}{text}")
