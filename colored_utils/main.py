@@ -1,4 +1,4 @@
-from colorama import Fore, Back, Style, just_fix_windows_console
+from colorama import Fore, Back, Style, just_fix_windows_console, init
 
 class ColoredUtils():
     """
@@ -12,6 +12,9 @@ class ColoredUtils():
     STYLE_RESET =              Style.RESET_ALL
 
     def __init__(self, bright : bool = False) -> None:
+
+        #init(convert=True)
+        
         self.bright = bright
         
         self.info = f"{Fore.BLUE}[INFO] {Style.RESET_ALL}"
@@ -69,4 +72,3 @@ class ColoredUtils():
         temp = "" if not self.bright else f"{Style.BRIGHT}"
         temp += f"{color}{text}{Style.STYLE_RESET}"
         print(temp, end=end)
-
