@@ -17,10 +17,10 @@ class ColoredUtils():
         
         self.bright = bright
         
-        self.info = f"{Fore.BLUE}[INFO] {Style.RESET_ALL}"
-        self.success = f"{Fore.GREEN}[SUCCESS] {Style.RESET_ALL}"
-        self.warning = f"{Fore.YELLOW}[WARNING] {Style.RESET_ALL}"
-        self.error = f"{Fore.RED}[ERROR] {Style.RESET_ALL}"
+        self.info = f"{Fore.BLUE}[INFO]{Style.RESET_ALL}"
+        self.success = f"{Fore.GREEN}[SUCCESS]{Style.RESET_ALL}"
+        self.warning = f"{Fore.YELLOW}[WARNING]{Style.RESET_ALL}"
+        self.error = f"{Fore.RED}[ERROR]{Style.RESET_ALL}"
         
         if self.bright:
             self.info = f"{Style.BRIGHT}" + self.info
@@ -28,6 +28,74 @@ class ColoredUtils():
             self.warning = f"{Style.BRIGHT}" + self.warning
             self.error = f"{Style.BRIGHT}" + self.error
     
+    def get_success(self, end : str = " ") -> str:
+        """
+        Returns string stored in self.success (default: green colored [SUCCESS]) 
+        with an additional string appended.
+
+        Parameters
+        ----------
+        end : str, optional
+            String that will be added afterwards (default = " ")
+        
+        Returns
+        -------
+        str
+            String 
+        """
+        return self.success + end
+
+    def get_info(self, end : str = " ") -> str:
+        """
+        Returns string stored in self.info (default: blue colored [INFO]) 
+        with an additional string appended.
+
+        Parameters
+        ----------
+        end : str, optional
+            String that will be added afterwards (default = " ")
+        
+        Returns
+        -------
+        str
+            String 
+        """
+        return self.info + end
+
+    def get_error(self, end : str = " ") -> str:
+        """
+        Returns string stored in self.success (default: red colored [ERROR]) 
+        with an additional string appended.
+
+        Parameters
+        ----------
+        end : str, optional
+            String that will be added afterwards (default = " ")
+        
+        Returns
+        -------
+        str
+            String 
+        """
+        return self.error + end
+
+    def get_warning(self, end : str = " ") -> str:
+        """
+        Returns string stored in self.success (default: yellow colored [WARNING]) 
+        with an additional string appended.
+
+        Parameters
+        ----------
+        end : str, optional
+            String that will be added afterwards (default = " ")
+        
+        Returns
+        -------
+        str
+            String 
+        """
+        return self.success + end
+
     def colored(self, text: str = "", color: int = Fore.WHITE) -> str:
         """
         Method that returns foreground colored text. Background not implemented yet.
@@ -51,7 +119,7 @@ class ColoredUtils():
         temp = "" if not self.bright else f"{Style.BRIGHT}"
         temp +=  f"{color}{text}{Style.STYLE_RESET}"
         return temp
-
+    
     def print_colored(self, text, color: int = Fore.WHITE, end : str = "\n") -> None:
         """
         Method that will print text in wanted color. 
@@ -72,3 +140,26 @@ class ColoredUtils():
         temp = "" if not self.bright else f"{Style.BRIGHT}"
         temp += f"{color}{text}{Style.STYLE_RESET}"
         print(temp, end=end)
+
+    def reset(self) -> None:
+        """
+        Reset class attributes to initial values.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        None
+        """
+
+        self.info = f"{Fore.BLUE}[INFO]{Style.RESET_ALL}"
+        self.success = f"{Fore.GREEN}[SUCCESS]{Style.RESET_ALL}"
+        self.warning = f"{Fore.YELLOW}[WARNING]{Style.RESET_ALL}"
+        self.error = f"{Fore.RED}[ERROR]{Style.RESET_ALL}"
+        
+        if self.bright:
+            self.info = f"{Style.BRIGHT}" + self.info
+            self.success = f"{Style.BRIGHT}" + self.success
+            self.warning = f"{Style.BRIGHT}" + self.warning
+            self.error = f"{Style.BRIGHT}" + self.error
