@@ -21,13 +21,15 @@ class ColoredUtils():
         self.success = f"{Fore.GREEN}[SUCCESS]{Style.RESET_ALL}"
         self.warning = f"{Fore.YELLOW}[WARNING]{Style.RESET_ALL}"
         self.error = f"{Fore.RED}[ERROR]{Style.RESET_ALL}"
-        
+        self.bg = [Back.LIGHTBLACK_EX, Back.MAGENTA]
+
         if self.bright:
             self.info = f"{Style.BRIGHT}" + self.info
             self.success = f"{Style.BRIGHT}" + self.success
             self.warning = f"{Style.BRIGHT}" + self.warning
             self.error = f"{Style.BRIGHT}" + self.error
-    
+            self.bg = [Back.BLACK, Back.MAGENTA]
+        
     def get_success(self, end : str = " ") -> str:
         """
         Returns string stored in self.success (default: green colored [SUCCESS]) 
