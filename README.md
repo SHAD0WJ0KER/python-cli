@@ -32,7 +32,7 @@ Gradually increase difficulty of programming requests/tasks.
 from colored_utils.main import ColoredUtils
 cu = ColoredUtils()
 
-cu.success()
+print(cu.success)
 ```
 
 This should successfully install and import module for your use. 
